@@ -58,8 +58,6 @@ public class UserService {
 	}
 
 	public int update(UserUpdateDto userToUpdate, int idToUpdate) {
-		String hashedPwd = BCrypt.hashpw(userToUpdate.getPassword(), BCrypt.gensalt());
-		userToUpdate.setPassword(hashedPwd);
 		try {
 			return dao.update(userToUpdate, idToUpdate);
 		} catch (SQLException e) {
